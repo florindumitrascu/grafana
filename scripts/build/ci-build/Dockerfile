@@ -1,5 +1,5 @@
 # Use old Debian (this has support into 2022) in order to ensure binary compatibility with older glibc's.
-FROM debian:stretch-20210208 AS toolchain
+FROM debian:stretch AS toolchain
 
 ENV OSX_MIN=10.10 \
     CTNG=1.24.0 \
@@ -98,7 +98,7 @@ RUN tar xf cue_${CUE_VERSION}_Linux_x86_64.tar.gz -C /tmp cue
 
 # Base image to crossbuild grafana.
 # Use old Debian (this has support into 2022) in order to ensure binary compatibility with older glibc's.
-FROM debian:stretch-20210208
+FROM debian:stretch
 
 ENV GOVERSION=1.17 \
     PATH=/usr/local/go/bin:$PATH \
